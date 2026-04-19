@@ -5,22 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For My Love ❤️</title>
 
+<!-- خط رومانسي -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
 <style>
 body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
-    background: #ffdde1;
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
     overflow: hidden;
 }
 
-/* خلفية القلوب */
+/* خلفية قلوب وورود */
 .hearts {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: url('https://i.imgur.com/9QZ7F2F.png');
+    background: url('https://i.imgur.com/8Km9tLL.png');
     background-size: cover;
-    opacity: 0.3;
+    opacity: 0.35;
 }
 
 /* شاشة الباسورد */
@@ -30,27 +33,43 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    background: rgba(255,255,255,0.9);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+#login h2 {
+    margin-bottom: 15px;
+    color: #ff4d6d;
 }
 
 input {
-    padding: 10px;
+    padding: 12px;
     font-size: 18px;
     border-radius: 10px;
     border: none;
     outline: none;
+    width: 200px;
 }
 
 button {
-    padding: 10px 20px;
-    margin-top: 10px;
+    padding: 10px 25px;
+    margin-top: 15px;
     font-size: 18px;
     border-radius: 10px;
     border: none;
     background: #ff4d6d;
     color: white;
     cursor: pointer;
+    transition: 0.3s;
 }
 
+button:hover {
+    background: #e63950;
+}
+
+/* المحتوى */
 #content {
     display: none;
     position: absolute;
@@ -58,15 +77,26 @@ button {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    width: 80%;
+    width: 85%;
 }
 
+/* الكلام */
 .message {
-    font-size: 22px;
+    font-size: 24px;
     color: #333;
-    background: rgba(255,255,255,0.8);
-    padding: 20px;
+    background: rgba(255,255,255,0.85);
+    padding: 25px;
     border-radius: 20px;
+    line-height: 1.8;
+    box-shadow: 0 0 25px rgba(0,0,0,0.2);
+}
+
+/* اسمها */
+.name {
+    font-family: 'Great Vibes', cursive;
+    font-size: 40px;
+    color: #ff4d6d;
+    margin-bottom: 15px;
 }
 </style>
 </head>
@@ -83,8 +113,18 @@ button {
 </div>
 
 <div id="content">
+    <div class="name">لـ فاطمة ❤️</div>
     <div class="message">
-        حقك عليا علي اي حاجه حصلت و بجد مكنتش بكدب عليكي فأي حاجه و انا اسف اني طولت معاها في المكالمه و مقفلتش علي طول بس معملتش كدا غير عشان تبعد عننا خالص انا نرتاح انا و انتي منها و من كل حاجه و نفضل سوا مبسوطين منغير خوف من اي حاجه حقك عليا يا نور عليني و متزعليش مني ❤️
+        حقك عليا على أي حاجة حصلت…  
+        بجد مكنتش بكدب عليكي في أي حاجة،  
+        وأنا آسف إني طولت في المكالمة…  
+
+        بس والله معملتش كده غير عشان تبعد عننا خالص،  
+        ونرتاح أنا وإنتي من أي حاجة ممكن تضايقنا،  
+        ونفضل سوا مبسوطين من غير خوف من أي حاجة…  
+
+        حقك عليا يا نور عيني،  
+        ومتزعليش مني ❤️
     </div>
 </div>
 
@@ -94,9 +134,9 @@ button {
 
 <script>
 function checkPassword() {
-    var pass = document.getElementById("password").value;
+    var pass = document.getElementById("password").value.trim();
 
-    if(pass === "2372015") {
+    if(pass === "2372025") {
         document.getElementById("login").style.display = "none";
         document.getElementById("content").style.display = "block";
 
@@ -105,7 +145,6 @@ function checkPassword() {
         music.volume = 0;
 
         music.play().then(() => {
-            // Fade in للصوت
             let vol = 0;
             let fade = setInterval(() => {
                 if(vol < 1){
@@ -116,7 +155,7 @@ function checkPassword() {
                 }
             }, 200);
         }).catch((e) => {
-            console.log("المتصفح منع التشغيل:", e);
+            console.log(e);
         });
 
     } else {
