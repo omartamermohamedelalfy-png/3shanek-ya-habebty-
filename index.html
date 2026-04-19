@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #ffdde1;
+    overflow: hidden;
+}
+
+/* خلفية القلوب */
+.hearts {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url('https://i.imgur.com/9QZ7F2F.png');
+    background-size: cover;
+    opacity: 0.3;
+}
+
+/* شاشة الباسورد */
+#login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+input {
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+    background: #ff4d6d;
+    color: white;
+    cursor: pointer;
+}
+
+#content {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 80%;
+}
+
+.message {
+    font-size: 22px;
+    color: #333;
+    background: rgba(255,255,255,0.8);
+    padding: 20px;
+    border-radius: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="hearts"></div>
+
+<div id="login">
+    <h2>ادخل الباسورد ❤️</h2>
+    <input type="password" id="password" placeholder="الباسورد">
+    <br>
+    <button onclick="checkPassword()">دخول</button>
+</div>
+
+<div id="content">
+    <div class="message">
+        حقك عليا علي اي حاجه حصلت و بجد مكنتش بكدب عليكي فأي حاجه و انا اسف اني طولت معاها في المكالمه و مقفلتش علي طول بس معملتش كدا غير عشان تبعد عننا خالص انا نرتاح انا و انتي منها و من كل حاجه و نفضل سوا مبسوطين منغير خوف من اي حاجه حقك عليا يا نور عليني و متزعليش مني ❤️
+    </div>
+</div>
+
+<audio id="music" loop>
+    <source src="fatma.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function checkPassword() {
+    var pass = document.getElementById("password").value;
+
+    if(pass === "2372015") {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("content").style.display = "block";
+
+        var music = document.getElementById("music");
+        music.currentTime = 0;
+        music.volume = 0;
+
+        music.play().then(() => {
+            // Fade in للصوت
+            let vol = 0;
+            let fade = setInterval(() => {
+                if(vol < 1){
+                    vol += 0.05;
+                    music.volume = vol;
+                } else {
+                    clearInterval(fade);
+                }
+            }, 200);
+        }).catch((e) => {
+            console.log("المتصفح منع التشغيل:", e);
+        });
+
+    } else {
+        alert("الباسورد غلط 😢");
+    }
+}
+</script>
+
+</body>
+</html>
